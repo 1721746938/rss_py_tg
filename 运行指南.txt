@@ -1,0 +1,43 @@
+# RSS爬虫软件运行指南
+
+根据您的系统情况，Windows Store版本的Python可能存在权限限制，导致无法直接安装依赖和运行程序。以下是详细的解决方案：
+
+## 方法1：使用批处理文件（推荐）
+
+1. 在"软件"文件夹中，找到我创建的`run_crawler.bat`文件
+2. 右键点击该文件，选择"以管理员身份运行"
+3. 批处理文件会自动尝试安装所需的依赖包（feedparser和requests）并运行爬虫程序
+
+## 方法2：安装标准Python版本（更可靠的长期解决方案）
+
+1. 从Python官网下载标准版本的Python安装包：https://www.python.org/downloads/
+2. 运行安装程序，**务必勾选"Add Python to PATH"选项**
+3. 选择"Install Now"进行标准安装
+4. 安装完成后，按Win+R键，输入cmd并按Enter打开命令提示符
+5. 输入以下命令运行爬虫：
+   
+   ```
+   cd C:\Users\Administrator\Desktop\软件
+   pip install feedparser requests
+   python rss_crawler.py
+   ```
+
+## 程序功能说明
+
+这个RSS爬虫软件主要功能包括：
+
+1. 从配置文件中定义的59个RSS订阅源中爬取内容
+2. 提取12种不同类型的网盘链接：百度网盘、阿里云盘、夸克网盘、天翼云盘、UC网盘、移动云盘、115网盘、PikPak、迅雷网盘、123网盘、磁力链接和电驴链接
+3. 将新发现的链接保存到两个地方：
+   - 以当前时间命名的文件（格式：MMDDHHMM.txt）
+   - 累积文件all_links.txt
+
+## 常见问题排查
+
+如果运行过程中出现错误，请检查：
+
+1. 网络连接是否正常
+2. 是否有足够的磁盘空间保存结果文件
+3. 如果使用Windows Store版本的Python，权限问题可能会导致安装依赖失败，此时建议安装标准Python版本
+
+如有任何其他问题，请随时联系我获取帮助。
